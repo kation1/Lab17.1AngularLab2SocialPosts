@@ -20,8 +20,8 @@ postList:Post[] =[
 
 ];
 
-onSubmit = function(item){
-this.postList.push({item})
+onSubmit = function(post:Post){
+this.postList.push({post})
 };
 
 onDelete = function(item){

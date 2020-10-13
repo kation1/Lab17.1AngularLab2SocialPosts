@@ -1,8 +1,6 @@
 <app-social-posts></app-social-posts>
 
-<app-post></app-post>
 
+<app-post *ngFor = "let post of post" (delete)= "onDelete($event)" [post] ="post"></app-post>
 
-<app-post *ngFor = "let post of postList" (delete)= "onDelete($event)" [post] ="post"></app-post-form>
-
-<app-post-form (submitted)="oneSubmit($event)"></app-post-form>
+<app-post-form (submitted)="submitPost($event)"></app-post-form>

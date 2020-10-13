@@ -6,14 +6,17 @@ import {Post} from '../post';
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent implements OnInit {
-  @Output() submitted = new EventEmitter<Post>();
+  @Output() callParent = new EventEmitter<Post>();
+  newTitle :string;
+  newThought :string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  submitPost = function(post)
+  submitPost = function()
   {
-    this.submitted.emit(post)
+    let newPost: Post = {title:this.newTitle, thought: this.newThought};
+    this.callParent.emit(newPost);
   }
 }

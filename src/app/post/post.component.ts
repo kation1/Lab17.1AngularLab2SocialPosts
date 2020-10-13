@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
   @Input() post:Post;
  @Output() delete = new EventEmitter<Post>();
   postSelected=" postlist[1]"
+  title = '';
   constructor() { }
 
 

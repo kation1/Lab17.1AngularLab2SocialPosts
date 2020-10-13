@@ -10,4 +10,14 @@ import {Post} from './post'
 export class AppComponent {
   title = 'Lab171AngularSocialPosts';
   post = {title:'test', thought:'testthought'};
+
+
+  submitPost = function()
+  {
+    let newPost: Post = {title:this.newTitle, thought: this.newThought};
+    this.callParent.emit(newPost);
+  }
+}
+
+
 }
