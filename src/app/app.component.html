@@ -1,6 +1,12 @@
-<app-social-posts></app-social-posts>
 
 
-<app-post *ngFor = "let post of post" (delete)= "onDelete($event)" [post] ="post"></app-post>
+<div *ngFor = "let item of postList">
 
-<app-post-form (submitted)="submitPost($event)"></app-post-form>
+   <h5>{{item.title}}</h5> 
+    {{item.thought}}
+    
+ </div> 
+<button (click)="doHidden()">Add new post</button>
+<div [ngClass] = "{'hidden':isHidden}">
+<app-post-form (callParent) = "onSubmit($event)" ></app-post-form>
+</div>

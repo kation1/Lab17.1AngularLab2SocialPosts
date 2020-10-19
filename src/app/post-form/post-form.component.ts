@@ -1,5 +1,7 @@
-import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import {Post} from '../post';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-post-form',
   templateUrl: './post-form.component.html',
@@ -14,9 +16,13 @@ export class PostFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitPost = function()
+  submitPost()
   {
-    let newPost: Post = {title:this.newTitle, thought: this.newThought};
+    debugger;
+    let newPost: Post = {title: this.newTitle, thought: this.newThought};
+   
     this.callParent.emit(newPost);
   }
+
+  
 }

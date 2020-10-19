@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Post} from './post'
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -7,17 +8,35 @@ import {Post} from './post'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'Lab171AngularSocialPosts';
-  post = {title:'test', thought:'testthought'};
+postList: Post[] =[
+    {title:'test post', thought:'test thought'},
+    {title:'testtitle2', thought:'test2'},
+    {title:'test3', thought: 'test3 thought'}
+    
+    ];
+    newPost:Post;
+    isHidden=true;
+  onSubmit = function(newPost:Post){
+    debugger;
+    this.postList.unshift(newPost)
+    this.isHidden = !this.isHidden;
+    };
+
+    doHidden = function() {
+      this.isHidden = !this.isHidden;
+    }
+    
+    // onDelete = function(item: Post){
+    //   this.toDoList.splice(this.toDoList.indexOf(item),1)
+    // }
 
 
-  submitPost = function()
-  {
-    let newPost: Post = {title:this.newTitle, thought: this.newThought};
-    this.callParent.emit(newPost);
+  ngOnInit(): void {
+
+console.log(this.postList[0].title)
+
   }
-}
-
 
 }
